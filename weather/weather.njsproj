@@ -39,7 +39,9 @@
     <Compile Include="public\js\bootstrap.min.js" />
     <Compile Include="public\js\jquery-3.1.1.js" />
     <Compile Include="public\js\jquery-3.1.1.min.js" />
+    <Content Include="desktop_screen.png" />
     <Content Include="lib\config.json" />
+    <Content Include="mobile_screen.png" />
     <Content Include="package.json" />
     <Content Include="public\css\app.css" />
     <Content Include="public\css\bootstrap-theme.css" />
