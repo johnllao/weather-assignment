@@ -1,0 +1,15 @@
+{
+  "name": "weather",
+  "version": "1.0.0",
+  "description": "weather",
+  "main": "app.js",
+  "author": {
+    "name": "John Lao"
+  },
+  "dependencies": {
+    "express": "3.4.4",
+    "jade": "*",
+    "mongodb": "^2.2.11",
+    "stylus": "*"
+  }
+}

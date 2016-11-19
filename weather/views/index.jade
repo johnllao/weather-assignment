@@ -1,0 +1,53 @@
+﻿extends layout
+
+block content
+  div.container
+    div.row
+      div.col-lg-12
+        h2.page-header=today
+
+    div.row
+      - for (var i = 0; i < locations.length; i++) {
+      - if (typeof(locations[i].details) !== 'undefined') {
+      div.col-lg-6.col-sm-12
+        h3.city-name=locations[i].details.display_location.city
+          small &nbsp; 
+          small=locations[i].details.display_location.state_name
+        div.row
+          div.col-lg-3.col-sm-12
+            img(src=locations[i].details.icon_url alt="")
+            p.weather-name=locations[i].details.weather
+            p=locations[i].details.temperature_string
+          div.col-lg-3.col-sm-12
+            table.table.property
+              tr
+                td.property-head Pressure
+                td.property-value
+                  span=locations[i].details.pressure_mb
+                  span &nbsp; MB
+              tr
+                td.property-head Visibility
+                td.property-value
+                  span=locations[i].details.visibility_mi
+                  span &nbsp; MI
+              tr
+                td.property-head Heat Index
+                td.property-value
+                  span=locations[i].details.heat_index_string
+              tr
+                td.property-head Dew Point
+                td.property-value
+                  span=locations[i].details.dewpoint_string
+              tr
+                td.property-head Humidity
+                td.property-value
+                  span=locations[i].details.relative_humidity
+      - }
+      - }
+
+    hr
+
+    footer
+      div.row
+        div.col-lg-12
+          p Copyright &copy; Daily Weather 2016  
