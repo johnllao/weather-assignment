@@ -1,33 +1,51 @@
 ﻿{
-  "port" :  8080,
+  "port": 8080,
   "apiKey": "5726dacc2d2b05d2",
   "apiProjectName": "weather-app",
   "mongodb": "mongodb://localhost:27017/weather",
   "data": [
     {
-      "_id"  : 1,
-      "name" : "Omaha, NE",
-      "url"  : "http://api.wunderground.com/api/5726dacc2d2b05d2/conditions/q/NE/Omaha.json"
+      "_id": 1,
+      "name": "Omaha, NE",
+      "url": "http://api.wunderground.com/api/5726dacc2d2b05d2/conditions/q/NE/Omaha.json"
     },
     {
-      "_id"  : 2,
-      "name" : "New York, NY",
-      "url"  : "http://api.wunderground.com/api/5726dacc2d2b05d2/conditions/q/NY/New_York.json"
+      "_id": 2,
+      "name": "New York, NY",
+      "url": "http://api.wunderground.com/api/5726dacc2d2b05d2/conditions/q/NY/New_York.json"
     },
     {
-      "_id"  : 3,
-      "name" : "Raffles Place, Singapore",
-      "url"  : "http://api.wunderground.com/api/5726dacc2d2b05d2/conditions/q/SG/Raffles_Place.json"
+      "_id": 3,
+      "name": "Raffles Place, Singapore",
+      "url": "http://api.wunderground.com/api/5726dacc2d2b05d2/conditions/q/SG/Raffles_Place.json"
     },
     {
-      "_id"  : 4,
-      "name" : "Jakarta, Indonesia",
-      "url"  : "http://api.wunderground.com/api/5726dacc2d2b05d2/conditions/q/IN/Jakarta.json"
+      "_id": 4,
+      "name": "Jakarta, Indonesia",
+      "url": "http://api.wunderground.com/api/5726dacc2d2b05d2/conditions/q/IN/Jakarta.json"
     },
     {
-      "_id"  : 5,
-      "name" : "Saporro, Japan",
-      "url"  :  "http://api.wunderground.com/api/5726dacc2d2b05d2/conditions/q/JP/Saporro.json"
+      "_id": 5,
+      "name": "Saporro, Japan",
+      "url": "http://api.wunderground.com/api/5726dacc2d2b05d2/conditions/q/JP/Saporro.json"
+    }
+  ],
+  "sort": [
+    {
+      "property": "id",
+      "field": "_id"
+    },
+    {
+      "property": "city",
+      "field": "details.display_location.city"
+    },
+    {
+      "property": "weather",
+      "field": "details.weather"
+    },
+    {
+      "property": "temp",
+      "field": "details.temp_f"
     }
   ]
 }

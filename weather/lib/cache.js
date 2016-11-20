@@ -3,6 +3,7 @@
     var http = require('http');
     var mongo = require('./database');
     var config = require('./config');
+    var sortExpr = require('./sortexpr');
 
     var connectionUrl = config.mongodb;
 
@@ -45,7 +46,7 @@
 
     exports.refresh = function (refreshComplete) {
         var collectionName = 'locations';
-        mongo.get(connectionUrl, collectionName, {}, function (db, data) {
+        mongo.get(connectionUrl, collectionName, {}, {}, function (db, data) {
 
             var totalRecords = data.length;
             var completedRecords = 0;
@@ -53,17 +54,23 @@
             for (var i = 0; i < totalRecords; i++) {
                 updateDetails(data[i]._id, data[i].url, collectionName, function () {
                     completedRecords++;
-                    if (totalRecords === completedRecords)
+                    if (totalRecords === completedRecords) {
+                        console.log('weather data loaded');
                         refreshComplete();
+                    }
                 });
             }
         });
     };
 
-    exports.get = function (filter, getComplete) {
+    exports.get = function (filter, sort, getComplete) {
 
-        mongo.get(connectionUrl, 'locations', filter, function (db, data) {
-            getComplete(data);
+        sortExpr.get(sort, function (expr) {
+
+            mongo.get(connectionUrl, 'locations', filter, expr, function (db, data) {
+                getComplete(data);
+            });
+
         });
 
     };

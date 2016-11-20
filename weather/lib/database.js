@@ -13,11 +13,12 @@
 
     };
 
-    exports.get = function (url, collectionName, filter, populate) {
+    exports.get = function (url, collectionName, filter, sort, populate) {
         
         db.connect(url, function (err, db) {
             var list = db.collection(collectionName)
                          .find(filter)
+                         .sort(sort)
                          .toArray(function (err, data) {
                              populate(db, data);
                          });
