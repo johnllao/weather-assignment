@@ -3,9 +3,11 @@
     var http = require('http');
     var mongo = require('./database');
     var config = require('./config');
+    var formatter = require('./formatter');
     var sortExpr = require('./sortexpr');
 
     var connectionUrl = config.mongodb;
+    var apiKey = config.apiKey;
 
     var updateDetails = function (id, url, collectionName, check) {
         http.get(url, function (res) {
@@ -52,7 +54,11 @@
             var completedRecords = 0;
 
             for (var i = 0; i < totalRecords; i++) {
-                updateDetails(data[i]._id, data[i].url, collectionName, function () {
+
+                var id = data[i]._id;
+                var sourceUrl = data[i].url.replace('{apikey}', apiKey);
+
+                updateDetails(id, sourceUrl, collectionName, function () {
                     completedRecords++;
                     if (totalRecords === completedRecords) {
                         console.log('weather data loaded');
