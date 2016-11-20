@@ -2,7 +2,7 @@
   "port": 8080,
   "apiKey": "5726dacc2d2b05d2",
   "apiProjectName": "weather-app",
-  "mongodb": "mongodb://localhost:27017/weather",
+  "mongodb": "mongodb://johnllao:glass.hous3@ds157187.mlab.com:57187/weather",
   "data": [
     {
       "_id": 1,
