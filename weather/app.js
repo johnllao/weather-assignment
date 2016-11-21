@@ -6,6 +6,13 @@
 
     var app = express();
 
+    console.log('Daily Weather App (v1.0.0)');
+    console.log('configuration');
+    console.log('port : ' + config.port);
+    console.log('weather underground apikey : ' + config.apiKey);
+    console.log('port : ' + config.mongodb);
+
+
     cache.setup(function () {
 
         cache.refresh(function () {

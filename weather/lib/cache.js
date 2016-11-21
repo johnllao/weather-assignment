@@ -33,11 +33,7 @@
 
         mongo.drop(connectionUrl, collectionName, function (db, reply) {
 
-            if (reply)
-                console.log('"' + collectionName + '" dropped');
-
             mongo.insertMany(connectionUrl, collectionName, data, function (db, reply) {
-                console.log(reply.insertedCount + ' record(s) inserted to "' + collectionName + '"' );
                 db.close();
                 setupComplete();
             });
